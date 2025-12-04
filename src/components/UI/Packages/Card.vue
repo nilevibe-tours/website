@@ -2,7 +2,11 @@
   <li
     class="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition hover:scale-[1.02]"
   >
-    <img :src="item.img" :alt="item.title" class="w-full h-64 object-cover" />
+    <img
+      :src="'/packages/' + item.img"
+      :alt="item.title"
+      class="w-full h-64 object-cover"
+    />
 
     <div class="p-5 flex flex-col flex-1">
       <h2 class="text-xl font-extrabold mb-2 text-gray-900">
@@ -16,7 +20,7 @@
       </span>
 
       <p class="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-        {{ item.description }}
+        {{ item.description.slice(0, 150) }}...
       </p>
 
       <div class="text-lg font-bold text-green-600 mb-6">
@@ -34,6 +38,7 @@
         <a
           href="#booking"
           class="w-full bg-light-blue text-white font-bold py-3 rounded-xl hover:bg-golden transition text-center px-4 text-sm"
+          @click="book"
         >
           Book Now
         </a>
@@ -43,9 +48,14 @@
 </template>
 
 <script setup>
+import { useMainStore } from "../../../stores/main";
+
+const store = useMainStore();
 const props = defineProps({
   item: Object,
 });
 
-const emits = defineEmits(["showPackage"]);
+function book() {
+  store.setPackage(props.item.title);
+}
 </script>

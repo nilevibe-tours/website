@@ -62,7 +62,7 @@ const packages = [
     description:
       "Enjoy a luxurious Nile cruise with guided tours to Philae Temple, Abu Simbel and Nubian Village. Includes transportation, accommodation, and professional tour guide.",
     duration: "3 Days / 2 Nights",
-    img: "/assets/aswan.jpg",
+    img: "aswan.jpg",
   },
   {
     title: "Luxor",
@@ -70,15 +70,19 @@ const packages = [
     description:
       "Explore the wonders of Luxor with visits to Karnak Temple, Luxor Temple, Valley of the Kings, and more. Includes transportation and professional tour guide.",
     duration: "3 Days / 2 Nights",
-    img: "/assets/luxor.jpg",
+    img: "luxor.jpg",
   },
+
+
+  
+  // ضيف قبل السطر دا
   {
     title: "Custom Packages",
     price: "Varies",
     description:
       "Tailor your own Egypt tour combining Aswan, Luxor, and other destinations according to your interests and schedule. Includes transportation and guide.",
     duration: "Flexible",
-    img: "/assets/custom.jpg",
+    img: "custom.jpg",
   },
 ];
 

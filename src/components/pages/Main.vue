@@ -22,4 +22,5 @@ import Destinations from "../UI/Main/Packages-list.vue";
 import MainFooter from "../UI/Main/Footer.vue";
 import { useMainStore } from "../../stores/main";
 const store = useMainStore();
+// console.log("ss");
 </script>

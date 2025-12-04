@@ -61,11 +61,10 @@
           <option disabled value="">
             {{ t("selectDestination") }}
           </option>
-          <option>Aswan</option>
-          <option>Luxor</option>
-          <option>Cairo</option>
-          <option>Hurghada</option>
-          <option value="other">other</option>
+          <option v-for="item in packages" :value="item.title" :key="item">
+            {{ item.title }}
+          </option>
+          <option value="other">Other</option>
         </select>
       </div>
 
@@ -120,15 +119,17 @@
 
       <!-- Success Message -->
       <p v-if="success" class="text-green-600 font-semibold mt-3 text-center">
-        ✔️ {{ t("success") }}
+        {{ t("success") }}
       </p>
     </form>
   </section>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { onBeforeMount, ref, watch } from "vue";
 import { useMainStore } from "../../../stores/main.js";
+import packages from "../../../../public/packages.js";
+
 const main = useMainStore();
 
 const lang = ref(main.current);
@@ -137,6 +138,13 @@ watch(
   () => main.current,
   (newVal) => {
     lang.value = newVal;
+  }
+);
+
+watch(
+  () => main.selectedPackage,
+  (newVal) => {
+    guest.value.destination = newVal;
   }
 );
 
@@ -153,7 +161,6 @@ const guest = ref({
 const loading = ref(false);
 const success = ref(false);
 
-// Simple dictionary
 const dict = {
   en: {
     fullName: "Full Name",
@@ -211,6 +218,8 @@ async function handleSubmit() {
 
   loading.value = false;
 }
-</script>
 
-<style></style>
+onBeforeMount(() => {
+  guest.value.destination = main.selectedPackage;
+});
+</script>

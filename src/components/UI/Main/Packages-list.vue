@@ -14,12 +14,11 @@
       <ul
         class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 place-items-stretch"
       >
-      <!-- اللغة اه ولا لا -->
+        <!-- اللغة اه ولا لا -->
         <DestinationCard
           v-for="(item, idx) in packages"
           :key="idx"
           :item="item"
-          @showPackage="openPackage"
         />
       </ul>
     </div>
@@ -30,12 +29,7 @@
 import { ref } from "vue";
 import { useMainStore } from "../../../stores/main";
 import packages from "../../../../public/packages";
-
-import DestinationCard from "../Destinations/card.vue";
+import DestinationCard from "../Packages/Card.vue";
 
 const store = useMainStore();
-const packageData = ref(null);
-function openPackage(pack) {
-  packageData.value = packageData.value === pack ? null : pack;
-}
 </script>

@@ -34,6 +34,7 @@
           <router-link
             to="/"
             class="w-full text-center bg-light-blue/85 hover:bg-light-blue cursor-pointer text-white font-bold py-4 rounded-xl transition text-lg"
+            @click="book"
           >
             Book Now
           </router-link>
@@ -52,20 +53,24 @@
 
 <script setup>
 import { onBeforeMount, ref } from "vue";
+import { useMainStore } from "../../stores/main";
 import packages from "../../../public/packages";
 import { useRouter } from "vue-router";
-
+const store = useMainStore();
 const props = defineProps({
   title: String,
 });
 
 const packageData = ref(null);
+const router = useRouter();
 
 onBeforeMount(() => {
   packageData.value = packages.find(
     (e) => e.title.toLowerCase() === props.title?.toLowerCase()
   );
-
-  if (packageData.value == null) useRouter().push({ name: "Main" });
+  if (packageData.value == null) router.push({ name: "Main" });
 });
+function book() {
+  store.setPackage(packageData.value.title);
+}
 </script>
