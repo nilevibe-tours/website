@@ -8,7 +8,7 @@
       playsinline
       preload="metadata"
     >
-      <source src="/hero-vid.mp4" type="video/mp4" />
+      <source :src="heroVid" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -41,6 +41,10 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import heroVid from "../../../../public/hero-vid.mp4";
+</script>
 
 <style scoped>
 h1,
