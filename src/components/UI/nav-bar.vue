@@ -1,8 +1,6 @@
 <template>
   <nav
-    :class="[
-      'absolute w-full z-50 top-0 transition-all duration-500 bg-dark/60 font-mono backdrop-blur-md shadow-md py-2',
-    ]"
+    class="w-full z-50 top-0 transition-all duration-500 bg-light-blue font-mono backdrop-blur-md shadow-md py-2"
   >
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <!-- Logo -->
@@ -48,7 +46,7 @@
     >
       <div
         v-if="open"
-        class="md:hidden bg-dark/95 backdrop-blur-md text-white px-6 pb-4 flex flex-col gap-4 mt-4 rounded-b-xl"
+        class="md:hidden backdrop-blur-md text-white px-6 pb-4 flex flex-col gap-4 mt-4 rounded-b-xl"
       >
         <a @click="open = false" href="/#about" class="mobile-link">About</a>
         <a @click="open = false" href="/#booking" class="mobile-link"
@@ -63,22 +61,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
 
 const open = ref(false);
-const isScrolled = ref(false);
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 30;
-};
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
 </script>
 
 <style scoped>
