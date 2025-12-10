@@ -51,6 +51,23 @@
         <div class="lg:w-3/5">
           <div class="space-y-6">
             <div
+              class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 transition-transform duration-300 hover:shadow-xl"
+            >
+              <h2
+                class="text-xl md:text-2xl font-bold text-[#0B1E36] mb-5 pb-3 border-b border-gray-100"
+              >
+                Customize Your Experience
+              </h2>
+              <div class="flex gap-4 items-start">
+                <p class="text-gray-800 leading-relaxed text-lg">
+                  We can adjust the program according to your preference. If you
+                  like, we can shorten the itinerary or spread it over fewer
+                  days—everything can be arranged to suit your
+                  comfort and convenience.
+                </p>
+              </div>
+            </div>
+            <div
               v-for="(items, section) in object.program"
               :key="section"
               class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 transition-transform duration-300 hover:shadow-xl"
@@ -60,7 +77,6 @@
               >
                 {{ section }}
               </h2>
-
               <ul class="space-y-4">
                 <li
                   v-for="item in items"
