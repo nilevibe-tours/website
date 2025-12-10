@@ -4,9 +4,6 @@ import routes from "./routes";
 const router = createRouter({
   routes,
   history: createWebHistory(),
-  scrollBehavior() {
-    return { top: 0, behavior: "smooth" };
-  },
 });
 
 export default router;

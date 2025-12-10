@@ -1,77 +1,73 @@
 <template>
   <nav
-    class="w-full z-50 top-0 transition-all duration-500 bg-light-blue font-mono backdrop-blur-md shadow-md py-2"
+    class="fixed top-0 left-0 w-full z-50 bg-dark/60 backdrop-blur-lg transition-all duration-300"
   >
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="h-14 flex items-center">
-        <img src="/icon.png" alt="logo" class="h-12 w-auto" />
-      </a>
+    <div class="flex items-center justify-between px-6 h-16">
+      <router-link to="/" class="flex items-center">
+        <img src="/icon.png" class="h-12 md:h-14 p-1" />
+      </router-link>
 
-      <!-- Desktop Menu -->
-      <ul class="hidden md:flex items-center gap-10 text-lg font-semibold">
-        <li><a href="/#about" class="nav-link">About</a></li>
-        <li><a href="/#booking" class="nav-link">Booking</a></li>
-        <li><a href="/#packages" class="nav-link">Packages</a></li>
+      <ul class="hidden md:flex gap-10 text-lg font-semibold tracking-wide">
+        <li
+          v-for="item in list"
+          :key="item.name"
+          class="text-light hover:text-[#fa0] transition"
+        >
+          <router-link :to="item.path">{{ item.name }}</router-link>
+        </li>
       </ul>
 
-      <!-- Mobile Button -->
-      <button
-        @click="open = !open"
-        class="md:hidden focus:outline-none relative z-50"
-      >
+      <button class="md:hidden flex flex-col gap-1" @click="state = !state">
         <span
-          class="block w-7 h-1 bg-white mb-1 transition"
-          :class="open ? 'rotate-45 translate-y-2' : ''"
+          class="w-7 h-1 bg-light rounded transition"
+          :class="state ? 'rotate-45 translate-y-2' : ''"
         />
         <span
-          class="block w-7 h-1 bg-white mb-1 transition"
-          :class="open ? 'opacity-0' : ''"
+          class="w-7 h-1 bg-light rounded transition"
+          :class="state ? 'opacity-0' : ''"
         />
         <span
-          class="block w-7 h-1 bg-white transition"
-          :class="open ? '-rotate-45 -translate-y-2' : ''"
+          class="w-7 h-1 bg-light rounded transition"
+          :class="state ? '-rotate-45 -translate-y-2' : ''"
         />
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <transition
-      enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 translate-y-5"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 translate-y-5"
-    >
-      <div
-        v-if="open"
-        class="md:hidden backdrop-blur-md text-white px-6 pb-4 flex flex-col gap-4 mt-4 rounded-b-xl"
+    <transition name="slide">
+      <ul
+        v-if="state"
+        class="flex flex-col gap-8 py-10 text-center text-xl font-semibold bg-dark/70 backdrop-blur-xl md:hidden"
       >
-        <a @click="open = false" href="/#about" class="mobile-link">About</a>
-        <a @click="open = false" href="/#booking" class="mobile-link"
-          >Booking</a
+        <li
+          v-for="item in list"
+          :key="item.name"
+          class="text-light hover:text-[#fa0] transition cursor-pointer"
+          @click="state = false"
         >
-        <a @click="open = false" href="/#packages" class="mobile-link"
-          >Packages</a
-        >
-      </div>
+          <router-link :to="item.path">{{ item.name }}</router-link>
+        </li>
+      </ul>
     </transition>
   </nav>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-const open = ref(false);
+const state = ref(false);
+
+const list = ref(useRouter().options.routes.slice(0, -2));
 </script>
 
-<style scoped>
-.nav-link {
-  @apply text-white hover:text-golden transition-colors duration-300;
+<style>
+.slide-enter-active,
+.slide-leave-active {
+  transition: 0.25s ease;
 }
-
-.mobile-link {
-  @apply block text-lg py-2 font-medium hover:text-golden transition;
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 </style>

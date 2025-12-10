@@ -1,89 +1,135 @@
 <template>
-  <div class="space-y-10 py-10">
-    <div class="flex justify-center items-center bg-white max-w-7xl mx-auto">
-      <div class="flex flex-col lg:flex-row">
-        <div class="w-full lg:w-1/2 h-72 lg:h-auto">
-          <img
-            :src="packageData.img"
-            :alt="packageData.title"
-            class="w-full h-full object-cover rounded-l-xl"
-          />
+  <div
+    v-if="object"
+    class="min-h-screen bg-gray-50 py-8 md:py-12 px-4 md:px-6 mt-10"
+  >
+    <div class="max-w-7xl mx-auto">
+      <!-- Header for mobile -->
+      <div class="md:hidden mb-6">
+        <h1 class="text-3xl font-bold text-center text-[#0B1E36] mb-4">
+          {{ object.title }}
+        </h1>
+        <p class="text-center text-[#CBA135] text-lg font-semibold">
+          {{ object.duration }} — {{ object.price }}
+        </p>
+      </div>
+
+      <!-- Main content grid -->
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <!-- Left column -->
+        <div class="lg:w-2/5">
+          <div class="sticky top-8 space-y-6">
+            <div class="rounded-2xl shadow-xl overflow-hidden">
+              <img
+                :src="object.image"
+                class="w-full h-64 md:h-80 lg:h-96 object-cover"
+                :alt="object.title"
+              />
+            </div>
+
+            <div
+              class="hidden lg:block bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <h1 class="text-2xl font-bold text-[#0B1E36] mb-3">
+                {{ object.title }}
+              </h1>
+              <p class="text-[#CBA135] text-lg font-semibold mb-6">
+                {{ object.duration }} — {{ object.price }}
+              </p>
+
+              <button
+                class="w-full py-3 bg-[#0B1E36] text-white rounded-xl text-lg font-semibold shadow hover:bg-[#122c4d] transition duration-300"
+                @click="handleBooking"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div class="w-full lg:w-1/2 p-8 flex flex-col">
-          <h1
-            class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight"
-          >
-            {{ packageData.title }} package
-          </h1>
+        <!-- Right column -->
+        <div class="lg:w-3/5">
+          <div class="space-y-6">
+            <div
+              v-for="(items, section) in object.program"
+              :key="section"
+              class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 transition-transform duration-300 hover:shadow-xl"
+            >
+              <h2
+                class="text-xl md:text-2xl font-bold text-[#0B1E36] mb-5 pb-3 border-b border-gray-100"
+              >
+                {{ section }}
+              </h2>
+
+              <ul class="space-y-4">
+                <li
+                  v-for="item in items"
+                  :key="item"
+                  class="flex gap-4 items-start"
+                >
+                  <span
+                    class="text-[#CBA135] text-xl font-bold mt-1 flex-shrink-0"
+                    >•</span
+                  >
+                  <span class="text-gray-800 leading-relaxed text-lg">{{
+                    item
+                  }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
           <div
-            class="inline-block w-fit bg-blue-600/10 text-blue-600 text-xs font-semibold px-4 py-1 rounded-full mb-6"
+            class="lg:hidden mt-10 bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
           >
-            {{ packageData.duration }}
-          </div>
-
-          <p class="text-gray-700 text-base leading-relaxed mb-8">
-            {{ packageData.description }}
-          </p>
-
-          <div class="text-3xl font-bold text-green-600 mb-10">
-            {{ packageData.price }}
-          </div>
-
-          <div class="flex gap-5">
-            <router-link
-              to="/#booking"
-              class="w-full text-center bg-light-blue/85 hover:bg-light-blue cursor-pointer text-white font-bold py-4 rounded-xl transition text-lg"
-              @click="book"
-            >
-              Book Now
-            </router-link>
-
-            <router-link
-              to="/"
-              class="w-full text-center bg-light-blue/85 hover:bg-light-blue cursor-pointer text-white font-bold py-4 rounded-xl transition text-lg"
-            >
-              Return to page
-            </router-link>
+            <div class="text-center">
+              <p class="text-[#CBA135] text-xl font-semibold mb-2">
+                {{ object.duration }} — {{ object.price }}
+              </p>
+              <button
+                class="w-full max-w-sm mx-auto py-4 bg-[#0B1E36] text-white rounded-xl text-lg font-semibold shadow hover:bg-[#122c4d] transition duration-300"
+                @click="handleBooking"
+              >
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto">
-      <h2
-        class="text-3xl md:text-4xl font-extrabold mb-10 tracking-wide text-center text-dark"
-      >
-        {{ store.current === "ar" ? "استكشف الباقات" : "Explore Packages" }}
-      </h2>
-      <PackagesList />
     </div>
   </div>
 </template>
 
 <script setup>
-import { onBeforeMount, onMounted, ref, watch } from "vue";
-import { useMainStore } from "../../stores/main";
-import packages from "../../../public/packages";
-import { useRoute, useRouter } from "vue-router";
-import PackagesList from "../UI/Main/Packages-list.vue";
+import { onMounted, ref, computed } from "vue";
+import tourData from "../../../public/tours/tourData";
+import { useRouter } from "vue-router";
+import useMainStore from "../../stores/main";
 const store = useMainStore();
-const props = defineProps({
-  title: String,
-});
-
-const packageData = ref(null);
+const props = defineProps(["title"]);
+const object = ref(null);
 const router = useRouter();
 
-onBeforeMount(() => {
-  packageData.value = packages.find(
-    (e) => e.title.toLowerCase() === props.title?.toLowerCase()
-  );
-  if (packageData.value == null) router.push({ name: "Main" });
-});
+const handleBooking = () => {
+  store.updateDestination(object.value.title);
+  router.push("/contact");
+};
 
-function book() {
-  store.setPackage(packageData.value.title);
-}
+onMounted(() => {
+  if (!props.title) {
+    router.replace("/");
+    return;
+  }
+
+  const found = tourData.find(
+    (e) => e.title.toLowerCase() === props.title.toLowerCase()
+  );
+
+  if (!found) {
+    router.replace("/");
+    return;
+  }
+
+  object.value = found;
+});
 </script>

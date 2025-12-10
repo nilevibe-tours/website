@@ -7,7 +7,6 @@ export default {
         dark: "#15364D",
         golden: "#FECC15",
         light: "#cbd5e1",
-        "light-blue": "#4DBDD5",
       },
     },
   },
