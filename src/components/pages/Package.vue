@@ -36,13 +36,6 @@
               <p class="text-[#CBA135] text-lg font-semibold mb-6">
                 {{ object.duration }} — {{ object.price }}
               </p>
-
-              <button
-                class="w-full py-3 bg-[#0B1E36] text-white rounded-xl text-lg font-semibold shadow hover:bg-[#122c4d] transition duration-300"
-                @click="handleBooking"
-              >
-                Book Now
-              </button>
             </div>
           </div>
         </div>
@@ -102,34 +95,31 @@
               <p class="text-[#CBA135] text-xl font-semibold mb-2">
                 {{ object.duration }} — {{ object.price }}
               </p>
-              <button
-                class="w-full max-w-sm mx-auto py-4 bg-[#0B1E36] text-white rounded-xl text-lg font-semibold shadow hover:bg-[#122c4d] transition duration-300"
-                @click="handleBooking"
-              >
-                Book Now
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <section class="container mx-auto px-6 pt-20" id="booking">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+        Book Now!
+      </h2>
+      <Form />
+    </section>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref, watch } from "vue";
 import tourData from "../../../public/tours/tourData";
 import { useRouter } from "vue-router";
+import Form from "../UI/Form.vue";
 import useMainStore from "../../stores/main";
 const store = useMainStore();
 const props = defineProps(["title"]);
 const object = ref(null);
 const router = useRouter();
-
-const handleBooking = () => {
-  store.updateDestination(object.value.title);
-  router.push("/contact");
-};
 
 onMounted(() => {
   if (!props.title) {
@@ -147,5 +137,6 @@ onMounted(() => {
   }
 
   object.value = found;
+  store.updateDestination(object.value.title);
 });
 </script>

@@ -9,6 +9,7 @@
 <script setup>
 import Footer from "./components/UI/Footer.vue";
 import NavMenu from "./components/UI/Nav-menu.vue";
+
 </script>
 
 <style></style>

@@ -3,6 +3,7 @@ import Contact from "../src/components/pages/Contact.vue";
 import Tours from "../src/components/pages/Tours.vue";
 import About from "../src/components/pages/About.vue";
 import Package from "../src/components/pages/Package.vue";
+import Reviews from "../src/components/pages/Reviews.vue";
 const routes = [
   {
     name: "Home",
@@ -24,6 +25,12 @@ const routes = [
     path: "/about",
     component: About,
   },
+  {
+    name: "Reviews",
+    path: "/review",
+    component: Reviews,
+  },
+
   {
     name: "Package",
     path: "/package/:title",

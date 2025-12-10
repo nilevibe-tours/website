@@ -46,8 +46,8 @@
         required
       >
         <option disabled value="">selectDestination</option>
-        <option v-for="item in packages" :value="item" :key="item">
-          {{ item }}
+        <option v-for="item in tourData" :value="item.title" :key="item.title">
+          {{ item.title }}
         </option>
         <option value="other">Other</option>
       </select>
@@ -118,6 +118,7 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import useMainStore from "../../stores/main";
+import tourData from "../../../public/tours/tourData.js";
 const store = useMainStore();
 const guest = ref({
   name: "",
@@ -128,15 +129,6 @@ const guest = ref({
   date: null,
   notes: "",
 });
-const packages = [
-  "Luxor",
-  "Cairo",
-  "Aswan",
-  "Hurghada",
-  "Marsa Alam",
-  "Marsa Matruh",
-  "Sharm El Sheikh",
-];
 
 watch(
   () => store.destination,

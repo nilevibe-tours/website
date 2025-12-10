@@ -26,6 +26,7 @@
         <h3 class="text-xl font-semibold mb-2">Contact</h3>
         <ul class="text-sm space-y-1">
           <li><i class="pi pi-phone mr-2"></i> +20 128 017 3604</li>
+          <li><i class="pi pi-phone mr-2"></i> +20 127 892 6242</li>
           <li><i class="pi pi-envelope mr-2"></i> nilevibetours@gmail.com</li>
         </ul>
       </div>
