@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen overflow-x-hidden bg-[#F8F1E5]">
+  <div class="w-screen h-screen overflow-x-hidden bg-[#F8F1E5] scroll-smooth">
     <NavMenu />
     <router-view class="min-h-screen"></router-view>
     <Footer />

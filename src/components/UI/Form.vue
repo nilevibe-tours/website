@@ -2,6 +2,7 @@
   <form
     @submit.prevent="handleSubmit"
     class="bg-white shadow-xl p-6 rounded-2xl space-y-5 w-full max-w-xl mx-auto"
+    id="form"
   >
     <!-- Full Name -->
     <div>
@@ -105,7 +106,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import useMainStore from "../../stores/main";
 const store = useMainStore();
 const guest = ref({
@@ -118,13 +119,21 @@ const guest = ref({
   notes: "",
 });
 const packages = [
-  "Aswan",
   "Luxor",
+  "Cairo",
+  "Aswan",
   "Hurghada",
   "Marsa Alam",
   "Marsa Matruh",
   "Sharm El Sheikh",
 ];
+
+watch(
+  () => store.destination,
+  (newVal) => {
+    guest.value.destination = newVal;
+  }
+);
 
 onMounted(() => {
   if (store.destination) {

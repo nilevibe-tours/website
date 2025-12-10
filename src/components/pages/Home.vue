@@ -54,28 +54,31 @@
       <div
         class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto"
       >
-        <div
+        <a
+          @click="store.updateDestination(d)"
+          href="#form"
           v-for="d in destinations"
-          :key="d.name"
+          :key="d"
           class="reveal opacity-0 relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
         >
           <img
-            :src="`/assets/${d.name}.jpg`"
-            :alt="d.name"
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            :src="`/assets/${d}.jpg`"
+            :alt="d"
+            class="w-full h-full max-h-56 object-cover group-hover:scale-110 transition-transform duration-500"
           />
+          <div class="absolute inset-0 bg-black/10 backdrop-blur-[3px]"></div>
+
           <div
             class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"
           ></div>
           <h3
             class="absolute inset-0 flex items-center justify-center text-3xl font-semibold text-white tracking-wide"
           >
-            {{ d.name }}
+            {{ d }}
           </h3>
-        </div>
+        </a>
       </div>
     </section>
-
 
     <!-- Popular Packages -->
     <section class="container mx-auto px-6 pt-20">
@@ -153,7 +156,8 @@ import "primeicons/primeicons.css";
 import Form from "../UI/Form.vue";
 import tourData from "../../../public/tours/tourData";
 import { onMounted } from "vue";
-
+import useMainStore from "../../stores/main";
+const store = useMainStore();
 const whyList = [
   {
     icon: "pi-map-marker",
@@ -173,13 +177,13 @@ const whyList = [
 ];
 
 const destinations = [
-  { name: "Aswan" },
-  { name: "Cairo" },
-  { name: "Hurghada" },
-  { name: "Luxor" },
-  { name: "Marsa Alam" },
-  { name: "Marsa Matruh" },
-  { name: "Sharm El Sheikh" },
+  "Aswan",
+  "Cairo",
+  "Hurghada",
+  "Luxor",
+  "Marsa Alam",
+  "Marsa Matruh",
+  "Sharm El Sheikh",
 ];
 
 onMounted(() => {
