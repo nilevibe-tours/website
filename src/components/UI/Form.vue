@@ -6,7 +6,7 @@
   >
     <!-- Full Name -->
     <div>
-      <label class="block font-semibold mb-1"> FullName </label>
+      <label class="block font-semibold mb-1"> Full Name </label>
       <input
         v-model="guest.name"
         type="text"
@@ -28,7 +28,7 @@
 
     <!-- Phone -->
     <div>
-      <label class="block font-semibold mb-1"> phone </label>
+      <label class="block font-semibold mb-1"> Phone number </label>
       <input
         v-model="guest.phone"
         type="tel"
@@ -39,7 +39,7 @@
 
     <!-- Destination -->
     <div>
-      <label class="block font-semibold mb-1"> destination </label>
+      <label class="block font-semibold mb-1"> Destination </label>
       <select
         v-model="guest.destination"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
@@ -55,7 +55,7 @@
 
     <!-- Number of People -->
     <div>
-      <label class="block font-semibold mb-1"> people </label>
+      <label class="block font-semibold mb-1"> People </label>
       <input
         v-model.number="guest.number"
         type="number"
@@ -67,7 +67,7 @@
 
     <!-- Date -->
     <div>
-      <label class="block font-semibold mb-1"> date </label>
+      <label class="block font-semibold mb-1"> Date </label>
       <input
         v-model="guest.date"
         type="date"
@@ -79,7 +79,7 @@
 
     <!-- Notes -->
     <div>
-      <label class="block font-semibold mb-1"> notes </label>
+      <label class="block font-semibold mb-1"> Notes </label>
       <textarea
         v-model="guest.notes"
         rows="3"
