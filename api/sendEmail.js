@@ -1,4 +1,8 @@
 import nodemailer from "nodemailer";
+
+const myEmail = process.env.EMAIL;
+const myPassword = process.env.PASSWORD;
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Only POST allowed" });
@@ -13,21 +17,18 @@ export default async function handler(req, res) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "nilevibetours@gmail.com",
-      pass: "ioot ieku ltsi pzuk", // الـ App Password
+      user: myEmail,
+      pass: myPassword, // الـ App Password
     },
   });
 
   try {
     await transporter.sendMail({
       from: `"Nile Vibe Tours" <nilevibetours@gmail.com>`,
-      to: "nilevibetours@gmail.com",
+      to: myEmail,
       subject: "New User Registered",
       html: `
         <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; border: 1px solid #eee;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="YOUR_LOGO_URL_HERE" alt="Logo" style="width: 120px; height: auto;" />
-          </div>
           <h2 style="color: #0B1E36; text-align: center; margin-bottom: 25px;">
             New Booking Submitted
           </h2>
