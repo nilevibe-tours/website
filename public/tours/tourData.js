@@ -3,7 +3,7 @@ const packages = [
     title: "Aswan",
     image: "/assets/Aswan.jpg",
     duration: "3 Days / 2 Nights",
-    price: "500EGP",
+    price: "starts with 30$",
     program: {
       "Day 1": [
         "Arrival & Aswan Highlights",
@@ -55,7 +55,7 @@ const packages = [
     title: "Luxor",
     image: "/assets/Luxor.jpg",
     duration: "3 Days / 2 Nights",
-    price: "600EGP",
+    price: "starts with 30$",
     program: {
       "Day 1": [
         "Arrival & The East Bank",
@@ -111,7 +111,7 @@ const packages = [
     title: "Hurghada",
     image: "/assets/Hurghada.jpg",
     duration: "4 Days / 3 Nights",
-    price: "700EGP",
+    price: "starts with 30$",
     program: {
       "Day 1": [
         "Arrival to Hurghada",
@@ -177,7 +177,7 @@ const packages = [
     title: "Cairo",
     image: "/assets/Cairo.jpg",
     duration: "4 Days / 3 Nights",
-    price: "750EGP",
+    price: "starts with 30$",
     program: {
       "Day 1": [
         "Arrival to Cairo",
@@ -244,7 +244,7 @@ const packages = [
     title: "Marsa Alam",
     image: "/assets/Marsa Alam.jpg",
     duration: "4 Days / 3 Nights",
-    price: "800EGP",
+    price: "starts with 30$",
     program: {
       "Day 1": [
         "Arrival to Marsa Alam",
@@ -310,7 +310,7 @@ const packages = [
     title: "Sharm Elsheikh",
     image: "/assets/Sharm ElSheikh.jpg",
     duration: "4 Days / 3 Nights",
-    price: "800EGP",
+    price: "starts with 50$",
     program: {
       "Day 1": [
         "Arrival & Sharm Vibes",

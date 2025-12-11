@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-20 pb-16 px-6 container">
+  <section class="pt-20 pb-16 px-6">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
         Contact us
