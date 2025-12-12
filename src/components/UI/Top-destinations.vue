@@ -15,6 +15,7 @@
         <img
           :src="d.image"
           :alt="d.title"
+          loading="lazy"
           class="w-full h-full max-h-56 object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div class="absolute inset-0 bg-black/10 backdrop-blur-[3px]"></div>

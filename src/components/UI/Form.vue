@@ -12,6 +12,8 @@
         type="text"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         required
+        name="name"
+        id="name"
       />
     </div>
 
@@ -23,6 +25,8 @@
         type="email"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         required
+        name="email"
+        id="email"
       />
     </div>
 
@@ -34,6 +38,8 @@
         type="tel"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         required
+        name="phone"
+        id="phone"
       />
     </div>
 
@@ -44,6 +50,8 @@
         v-model="guest.destination"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         required
+        name="destination"
+        id="destination"
       >
         <option disabled value="">selectDestination</option>
         <option v-for="item in tourData" :value="item.title" :key="item.title">
@@ -62,6 +70,8 @@
         min="1"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         required
+        name="numberOfPeople"
+        id="numberOfPeople"
       />
     </div>
 
@@ -74,6 +84,8 @@
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         required
         :min="minDate"
+        name="date"
+        id="date"
       />
     </div>
 
@@ -83,6 +95,8 @@
       <textarea
         v-model="guest.notes"
         rows="3"
+        name="notes"
+        id="notes"
         class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         :required="guest.destination === 'other'"
       ></textarea>

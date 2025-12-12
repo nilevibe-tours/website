@@ -13,7 +13,9 @@
         class="reveal opacity-0 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
       >
         <img
+          :alt="tour.title"
           :src="tour.image || 'https://via.placeholder.com/400x250'"
+          loading="lazy"
           class="h-56 w-full object-cover hover:scale-105 transition-transform duration-500"
         />
         <div class="p-6 flex flex-col gap-4">
@@ -47,7 +49,9 @@
         class="reveal opacity-0 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
       >
         <img
+          :alt="tour.title"
           :src="tour.image || 'https://via.placeholder.com/400x250'"
+          loading="lazy"
           class="h-56 w-full object-cover hover:scale-105 transition-transform duration-500"
         />
         <div class="p-6 flex flex-col gap-4">

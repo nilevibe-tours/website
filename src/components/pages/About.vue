@@ -4,7 +4,11 @@
     <div
       class="relative h-[45vh] w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg"
     >
-      <img src="/icon.png" class="w-full h-full object-contain bg-white p-8" />
+      <img
+        src="/icon.png"
+        class="w-full h-full object-contain bg-white p-8"
+        alt="Nile Vibe Tours"
+      />
 
       <!-- Soft Overlay -->
       <div

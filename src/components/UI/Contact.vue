@@ -54,34 +54,40 @@
     >
       <!-- Full Name -->
       <div>
-        <label class="block font-semibold mb-1"> Full Name </label>
+        <label class="block font-semibold mb-1" for="name"> Full Name </label>
         <input
           v-model="guest.name"
           type="text"
           class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
           required
+          name="name"
+          id="name"
         />
       </div>
 
       <!-- Email -->
       <div>
-        <label class="block font-semibold mb-1"> Email </label>
+        <label class="block font-semibold mb-1" for="email"> Email </label>
         <input
           v-model="guest.email"
           type="email"
           class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
           required
+          name="email"
+          id="email"
         />
       </div>
 
       <!-- Notes -->
       <div>
-        <label class="block font-semibold mb-1"> Notes </label>
+        <label class="block font-semibold mb-1" for="notes"> Notes </label>
         <textarea
           v-model="guest.notes"
           rows="3"
           class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
           :required="guest.destination === 'other'"
+          name="notes"
+          id="notes"
         ></textarea>
       </div>
 

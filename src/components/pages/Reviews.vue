@@ -17,6 +17,8 @@
           type="text"
           class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
           required
+          name="name"
+          id="name"
         />
       </div>
 
@@ -28,6 +30,8 @@
           type="email"
           class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
           required
+          name="email"
+          id="email"
         />
       </div>
       <!-- Notes -->
@@ -35,6 +39,8 @@
         <label class="block font-semibold mb-1"> Notes </label>
         <textarea
           v-model="guest.notes"
+          name="notes"
+          id="notes"
           rows="3"
           class="w-full border px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-light-blue"
         ></textarea>

@@ -4,7 +4,7 @@
   >
     <div class="flex items-center justify-between px-6 h-16">
       <router-link to="/" class="flex items-center">
-        <img src="/icon.png" class="h-12 md:h-14 p-1" />
+        <img src="/icon.png" class="h-12 md:h-14 p-1" alt="NileVibe logo" />
       </router-link>
 
       <ul class="hidden md:flex gap-10 text-lg font-semibold tracking-wide">

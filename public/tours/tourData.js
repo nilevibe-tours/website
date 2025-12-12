@@ -1,7 +1,7 @@
 const packages = [
   {
     title: "Aswan",
-    image: "/assets/Aswan.jpg",
+    image: "/assets/Aswan.webp",
     duration: "3 Days / 2 Nights",
     price: "starts with 30$",
     program: {
@@ -53,7 +53,7 @@ const packages = [
 
   {
     title: "Luxor",
-    image: "/assets/Luxor.jpg",
+    image: "/assets/Luxor.webp",
     duration: "3 Days / 2 Nights",
     price: "starts with 30$",
     program: {
@@ -109,7 +109,7 @@ const packages = [
 
   {
     title: "Hurghada",
-    image: "/assets/Hurghada.jpg",
+    image: "/assets/Hurghada.webp",
     duration: "4 Days / 3 Nights",
     price: "starts with 30$",
     program: {
@@ -175,7 +175,7 @@ const packages = [
 
   {
     title: "Cairo",
-    image: "/assets/Cairo.jpg",
+    image: "/assets/Cairo.webp",
     duration: "4 Days / 3 Nights",
     price: "starts with 30$",
     program: {
@@ -242,7 +242,7 @@ const packages = [
 
   {
     title: "Marsa Alam",
-    image: "/assets/Marsa Alam.jpg",
+    image: "/assets/Marsa Alam.webp",
     duration: "4 Days / 3 Nights",
     price: "starts with 30$",
     program: {
@@ -308,7 +308,7 @@ const packages = [
 
   {
     title: "Sharm Elsheikh",
-    image: "/assets/Sharm ElSheikh.jpg",
+    image: "/assets/Sharm ElSheikh.webp",
     duration: "4 Days / 3 Nights",
     price: "starts with 50$",
     program: {
