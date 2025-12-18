@@ -4,7 +4,7 @@
 
     <WhyList />
 
-    <!-- <Reviews /> -->
+    <Reviews />
     
     <TopDestinations />
 
