@@ -5,9 +5,9 @@
     <WhyList />
 
     <Reviews />
-    
-    <TopDestinations />
 
+    <TopDestinations />
+    <Transfers />
     <Packages :is-popular="true" />
 
     <Contact />
@@ -28,6 +28,7 @@ import Packages from "../UI/Packages.vue";
 import Contact from "../UI/Contact.vue";
 import CTA from "../UI/home/CTA.vue";
 import Reviews from "../UI/home/Reviews.vue";
+import Transfers from "../UI/home/Transfers.vue";
 
 onMounted(() => {
   const revealElements = document.querySelectorAll(".reveal");
