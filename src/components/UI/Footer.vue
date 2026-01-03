@@ -1,3 +1,21 @@
+<script setup>
+import "primeicons/primeicons.css";
+const socialMedia = [
+  {
+    link: "https://www.facebook.com/share/1AJdG182sD/",
+    class: "pi-facebook hover:text-blue-600",
+  },
+  {
+    link: "https://www.instagram.com/nilevibetours/",
+    class: "pi-instagram hover:text-[#CBA135]",
+  },
+  {
+    link: "https://wa.me/+201278926242",
+    class: "pi-whatsapp hover:text-green-500 ",
+  },
+];
+</script>
+
 <template>
   <footer
     class="bg-dark text-center sm:text-start text-white pt-8 border-t border-golden/20"
@@ -35,37 +53,9 @@
       <div class="flex flex-col items-center md:items-start gap-2">
         <h3 class="text-xl font-semibold mb-2">Follow Us</h3>
         <ul class="flex gap-4">
-          <li>
-            <a
-              href="https://www.facebook.com/NileVibeTours"
-              target="_blank"
-              class="social-icon text-xl"
-            >
-              <i
-                class="pi pi-facebook hover:text-blue-600 transition-colors"
-              ></i>
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://www.instagram.com/nilevibetours/"
-              class="social-icon text-xl"
-            >
-              <i
-                class="pi pi-instagram hover:text-[#CBA135] transition-colors"
-              ></i>
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://wa.me/+201278926242"
-              class="social-icon text-xl"
-            >
-              <i
-                class="pi pi-whatsapp hover:text-green-500 transition-colors"
-              ></i>
+          <li v-for="item in socialMedia" :key="item">
+            <a :href="item.link" target="_blank" class="social-icon">
+              <i :class="`pi transition-colors ${item.class}`"></i>
             </a>
           </li>
         </ul>
@@ -75,22 +65,17 @@
     <!-- Bottom Line -->
     <div class="container mx-auto px-6 mt-6 border-t border-golden/20">
       <p class="text-center text-sm text-white/60 py-2">
-        All rights reserved © 2025 Nile Vibe Tours
+        All rights reserved © {{ new Date().getFullYear() }} Nile Vibe Tours
       </p>
     </div>
   </footer>
 </template>
 
-<script setup>
-import "primeicons/primeicons.css";
-</script>
-
 <style scoped>
 .footer-link {
   @apply hover:text-[#CBA135] transition-colors duration-300;
 }
-
 .social-icon {
-  @apply cursor-pointer transition-transform duration-300 hover:scale-110;
+  @apply cursor-pointer transition-transform duration-300 hover:scale-110 text-xl;
 }
 </style>

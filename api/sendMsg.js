@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Only POST allowed" });
   }
 
-  const { name, email, notes } = req.body;
+  const { isReview, name, email, notes } = req.body;
 
   if (!name || !email) {
     return res.status(400).json({ message: "Missing required fields" });
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Nile Vibe Tours" <nilevibetours@gmail.com>`,
       to: myEmail,
-      subject: "New Message Received!",
+      subject: `New ${isReview ? "Review" : "Message"} Received!`,
       html: `
         <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; border: 1px solid #eee;">
           <h2 style="color: #0B1E36; text-align: center; margin-bottom: 25px;">

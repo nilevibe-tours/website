@@ -22,9 +22,9 @@
           <h3 class="text-xl font-semibold">{{ tour.title }}</h3>
           <div class="text-gray-600 text-sm flex justify-between">
             <span><i class="pi pi-hourglass"></i> {{ tour.duration }}</span>
-            <span v-if="tour.price"
+            <!-- <span v-if="tour.price"
               ><i class="pi pi-money-bill"></i> {{ tour.price }}</span
-            >
+            > -->
           </div>
           <ul
             class="border-l-4 border-[#CBA135] pl-4 text-gray-700 space-y-1 text-sm"

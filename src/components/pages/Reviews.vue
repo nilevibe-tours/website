@@ -76,6 +76,7 @@
 <script setup>
 import { ref } from "vue";
 const guest = ref({
+  isReview: false,
   name: "",
   email: "",
   notes: "",
@@ -89,7 +90,7 @@ async function handleSubmit() {
   success.value = false;
 
   try {
-    const res = await fetch("/api/sendReview", {
+    const res = await fetch("/api/sendMsg", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

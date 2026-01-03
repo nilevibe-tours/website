@@ -10,7 +10,9 @@
           {{ object.title }}
         </h1>
         <p class="text-center text-[#CBA135] text-lg font-semibold">
-          {{ object.duration }} — {{ object.price }}
+          <!-- {{ object.duration }} — -->
+          
+          {{ object.price }}
         </p>
       </div>
 

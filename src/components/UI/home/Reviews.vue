@@ -17,10 +17,6 @@
           class="pi pi-star-fill absolute left-0 bottom-0 -translate-x-1/3 translate-y-1/3 text-golden text-4xl"
         >
         </i>
-        <!-- <i
-          class="pi pi-star-fill absolute right-0 bottom-0 translate-x-1/3 translate-y-1/3 text-golden text-3xl"
-        >
-        </i> -->
         <p class="text-[#0B1E36] font-semibold text-sm text-right">
           {{ review.name }} <i class="pi pi-pencil text-xs"></i>
         </p>

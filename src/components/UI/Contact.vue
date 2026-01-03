@@ -123,6 +123,7 @@
 import "primeicons/primeicons.css";
 import { ref } from "vue";
 const guest = ref({
+  isReview: false,
   name: "",
   email: "",
   notes: "",
@@ -141,6 +142,7 @@ async function handleSubmit() {
       headers: {
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify(guest.value),
     });
 
@@ -151,8 +153,6 @@ async function handleSubmit() {
         email: "",
         notes: "",
       };
-    } else {
-      console.console(await res.json());
     }
   } catch (err) {
     console.error("ERROR:", err);
