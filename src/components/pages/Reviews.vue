@@ -76,7 +76,7 @@
 <script setup>
 import { ref } from "vue";
 const guest = ref({
-  isReview: false,
+  isReview: true,
   name: "",
   email: "",
   notes: "",
