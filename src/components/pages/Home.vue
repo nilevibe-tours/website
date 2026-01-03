@@ -25,7 +25,7 @@ import Hero from "../UI/home/Hero.vue";
 import WhyList from "../UI/home/Why-list.vue";
 import TopDestinations from "../UI/Top-destinations.vue";
 import Packages from "../UI/Packages.vue";
-import Contact from "../UI/Contact.vue";
+import Contact from "../pages/Contact.vue";
 import CTA from "../UI/home/CTA.vue";
 import Reviews from "../UI/home/Reviews.vue";
 import Transfers from "../UI/home/Transfers.vue";
