@@ -22,7 +22,7 @@
 
         <li class="hover:scale-110 transition-transform">
           <a
-            href="https://www.instagram.com/nilevibetours/"
+            href="https://www.instagram.com/amirr_gerges/"
             target="_blank"
             class="text-pink-600"
           >

@@ -6,7 +6,7 @@ const socialMedia = [
     class: "pi-facebook hover:text-blue-600",
   },
   {
-    link: "https://www.instagram.com/nilevibetours/",
+    link: "https://www.instagram.com/amirr_gerges/",
     class: "pi-instagram hover:text-[#CBA135]",
   },
   {
